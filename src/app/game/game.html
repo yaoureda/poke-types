@@ -1,0 +1,46 @@
+<h1>Score: {{ score() }}</h1>
+<h1>Streak: {{ streak() }}</h1>
+
+@if (currentPokemon(); as pokemon) {
+  <img [src]="pokemon.sprite"/>
+} @else {
+  <p>Loading pokemon...</p>
+}
+
+@if (gameStatus() === 'playing') {
+  <p>Guess the pokemon's type</p>
+  <div>
+    @for (type of allTypes; track type) {
+      <button
+        (click)="selectType(type)"
+        [class.selected]="selectedTypes().includes(type)"
+      >
+        {{ type }}
+      </button>
+    }
+  </div>
+  <div>
+    <button
+      [disabled]="selectedTypes().length == 0"
+      (click)="submitAnswer()"
+    >
+      Submit
+    </button>
+  </div>
+} @else if (gameStatus() === 'correct') {
+  <p>Correct! 🎉</p>
+  <button
+    (click)="newRound()"
+  >
+    Next
+  </button>
+} @else {
+  @if (currentPokemon(); as pokemon) {
+      <p>Wrong, correct types are {{ pokemon.types }}</p>
+  }
+  <button
+    (click)="newRound()"
+  >
+    Next
+  </button>
+}
