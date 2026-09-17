@@ -2,9 +2,10 @@ import { Component, inject, signal } from '@angular/core';
 import { Pokemon } from '../models/pokemon';
 import { PokeApi } from '../services/poke-api';
 import type { GameStatus } from '../models/game-status';
+import { TypeSelector } from '../components/type-selector/type-selector';
 
 @Component({
-  imports: [],
+  imports: [TypeSelector],
   selector: 'app-game',
   styleUrl: './game.scss',
   templateUrl: './game.html',
@@ -18,28 +19,10 @@ export class Game {
 
   protected readonly score = signal(0);
   protected readonly streak = signal(0);
+
   protected readonly currentPokemon = signal<Pokemon | null>(null);
-  protected readonly allTypes = [
-    'normal',
-    'fire',
-    'water',
-    'electric',
-    'grass',
-    'ice',
-    'fighting',
-    'poison',
-    'ground',
-    'flying',
-    'psychic',
-    'bug',
-    'rock',
-    'ghost',
-    'dragon',
-    'dark',
-    'steel',
-    'fairy',
-  ];
   protected readonly selectedTypes = signal<string[]>([]);
+
   gameStatus = signal<GameStatus>('playing');
 
   loadPokemon() {

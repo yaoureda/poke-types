@@ -2,22 +2,17 @@
 <h1>Streak: {{ streak() }}</h1>
 
 @if (currentPokemon(); as pokemon) {
+  <p>What type is {{ pokemon.name }} ?</p>
   <img [src]="pokemon.sprite"/>
 } @else {
   <p>Loading pokemon...</p>
 }
 
 @if (gameStatus() === 'playing') {
-  <p>Guess the pokemon's type</p>
   <div>
-    @for (type of allTypes; track type) {
-      <button
-        (click)="selectType(type)"
-        [class.selected]="selectedTypes().includes(type)"
-      >
-        {{ type }}
-      </button>
-    }
+    <app-type-selector
+      (typeSelected)="selectType($event)"
+      [typesSelected]="selectedTypes()" />
   </div>
   <div>
     <button
