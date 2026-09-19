@@ -1,11 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { Pokemon } from '../models/pokemon';
 import { PokeApi } from '../services/poke-api';
-import type { GameStatus } from '../models/game-status';
 import { TypeSelector } from '../components/type-selector/type-selector';
+import { GameResult } from '../components/game-result/game-result';
+import type { GameStatus } from '../models/game-status';
+import { Header } from '../components/header/header';
 
 @Component({
-  imports: [TypeSelector],
+  imports: [Header, TypeSelector, GameResult],
   selector: 'app-game',
   styleUrl: './game.scss',
   templateUrl: './game.html',
