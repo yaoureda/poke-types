@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Game } from './game/game';
 
@@ -9,5 +9,5 @@ import { Game } from './game/game';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('poketypes');
+
 }
