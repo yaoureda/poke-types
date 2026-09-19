@@ -1,0 +1,36 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+h1 {
+  margin: 0;
+}
+
+.stats {
+  display: flex;
+  gap: 25px;
+  font-size: 20px;
+}
+
+.stats span {
+  background-color: #f3f4f6;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.pokeball {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background: linear-gradient(
+    red 0 45%,
+    black 45% 55%,
+    white 55% 100%
+  );
+}
