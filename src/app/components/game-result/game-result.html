@@ -1,0 +1,36 @@
+<div
+  class="result"
+  [class.correct]="result() === 'correct'"
+  [class.wrong]="result() === 'wrong'"
+>
+  @if (result() === 'correct') {
+    <div class="result-icon">✓</div>
+    <h2>Correct 🎉 !</h2>
+  } @else {
+    <div class="result-icon">✕</div>
+    <h2>Wrong.</h2>
+  }
+
+  <p class="answer-label">
+    The correct
+    {{ correctTypes().length > 1 ? 'types were' : 'type was' }} :
+  </p>
+
+  <div class="correct-types">
+    @for (correctType of correctTypes(); track correctType) {
+      <span
+        class="type-badge"
+        [style.background-color]="getTypeColor(correctType)"
+      >
+        {{ correctType }}
+      </span>
+    }
+  </div>
+
+  <button
+    class="next-button"
+    (click)="next.emit()"
+  >
+    Next Pokémon →
+  </button>
+</div>
