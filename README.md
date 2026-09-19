@@ -1,7 +1,7 @@
 # 🔴 Poketypes
 Can you guess the pokemon's type(s) based on its sprite? (I promise it's fun)
 
-Built with Angular.
+Built with Angular. Deployed on Github Pages: https://yaoureda.github.io/poke-types/
 
 ---
 
