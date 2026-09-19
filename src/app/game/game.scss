@@ -1,1 +1,67 @@
+:host {
+  display: block;
+  font-family: sans-serif;
+}
 
+.game-content {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  min-height: 430px;
+}
+
+.pokemon-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 18px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.pokemon-panel p {
+  font-size: 20px;
+}
+
+.pokemon-name {
+  text-transform: capitalize;
+}
+
+.answer-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: white;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #000;
+  transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+  background: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+}

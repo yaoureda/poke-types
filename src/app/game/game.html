@@ -1,41 +1,44 @@
-<h1>Score: {{ score() }}</h1>
-<h1>Streak: {{ streak() }}</h1>
+<app-header
+  [score]="score()"
+  [streak]="streak()"
+/>
 
-@if (currentPokemon(); as pokemon) {
-  <p>What type is {{ pokemon.name }} ?</p>
-  <img [src]="pokemon.sprite"/>
-} @else {
-  <p>Loading pokemon...</p>
-}
+<div class="game-content">
+  <section class="pokemon-panel">
+    @if (currentPokemon(); as pokemon) {
+      <div class="pokemon-display">
+        <p>What type is <strong class="pokemon-name">{{ pokemon.name }}</strong>?</p>
+        <img [src]="pokemon.sprite" [alt]="pokemon.name" />
+      </div>
+    } @else {
+      <p>Loading pokemon...</p>
+    }
+  </section>
 
-@if (gameStatus() === 'playing') {
-  <div>
-    <app-type-selector
-      (typeSelected)="selectType($event)"
-      [typesSelected]="selectedTypes()" />
-  </div>
-  <div>
-    <button
-      [disabled]="selectedTypes().length == 0"
-      (click)="submitAnswer()"
-    >
-      Submit
-    </button>
-  </div>
-} @else if (gameStatus() === 'correct') {
-  <p>Correct! 🎉</p>
-  <button
-    (click)="newRound()"
-  >
-    Next
-  </button>
-} @else {
-  @if (currentPokemon(); as pokemon) {
-      <p>Wrong, correct types are {{ pokemon.types }}</p>
-  }
-  <button
-    (click)="newRound()"
-  >
-    Next
-  </button>
-}
+  <section class="answer-panel">
+    @if (gameStatus() === 'playing') {
+      <div>
+        <app-type-selector
+          (typeSelected)="selectType($event)"
+          [typesSelected]="selectedTypes()" />
+      </div>
+      <div>
+        <button
+          class="submit-button"
+          [disabled]="selectedTypes().length == 0"
+          (click)="submitAnswer()"
+        >
+          Submit
+        </button>
+      </div>
+    } @else {
+      @if (currentPokemon(); as pokemon) {
+        <app-game-result
+          [result]="gameStatus()"
+          [correctTypes]="pokemon.types"
+          (next)="newRound()"
+        />
+      }
+    }
+  </section>
+</div>
