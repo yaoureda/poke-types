@@ -1,9 +1,12 @@
-@for (type of types; track type.name) {
-  <button
-    [style.background-color]="type.color"
-    [class.selected]="typesSelected().includes(type.name)"
-    (click)="typeSelected.emit(type.name)"
-  >
-    {{ type.name }}
-  </button>
-}
+<div class="type-keyboard">
+  @for (type of types; track type.name) {
+    <button
+      class="type-key"
+      [style.background-color]="type.color"
+      [class.selected]="typesSelected().includes(type.name)"
+      (click)="typeSelected.emit(type.name)"
+    >
+      {{ type.name }}
+    </button>
+  }
+</div>
