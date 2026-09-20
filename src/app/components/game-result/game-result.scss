@@ -2,7 +2,6 @@
   display: block;
   width: 100%;
 }
-
 .result {
   width: 100%;
   max-width: 400px;
@@ -14,17 +13,14 @@
   align-items: center;
   text-align: center;
 }
-
 .result.correct {
   background: #dcfce7;
   border: 2px solid #86efac;
 }
-
 .result.wrong {
   background: #fee2e2;
   border: 2px solid #fca5a5;
 }
-
 .result-icon {
   width: 50px;
   height: 50px;
@@ -37,34 +33,28 @@
   font-weight: 800;
   margin-bottom: 10px;
 }
-
 .correct .result-icon, .correct h2 {
   color: #16a34a;
 }
-
 .wrong .result-icon, .wrong h2 {
   color: #dc2626;
 }
-
 .result h2 {
   margin: 0;
   font-size: 32px;
   font-weight: 800;
 }
-
 .answer-label {
   margin: 16px 0 10px;
   font-size: 20px;
   color: #4b5563;
 }
-
 .correct-types {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
 }
-
 .type-badge {
   padding: 6px 14px;
   border-radius: 999px;
@@ -74,7 +64,6 @@
   font-weight: 700;
   text-transform: uppercase;
 }
-
 .next-button {
   width: 100%;
   margin-top: 20px;
@@ -90,7 +79,6 @@
     background 0.15s ease,
     transform 0.15s ease;
 }
-
 .next-button:hover {
   background: #000;
   transform: translateY(-1px);

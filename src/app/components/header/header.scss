@@ -5,23 +5,19 @@ header {
   padding: 15px 30px;
   border-bottom: 1px solid #ddd;
 }
-
 h1 {
   margin: 0;
 }
-
 .stats {
   display: flex;
   gap: 25px;
   font-size: 20px;
 }
-
 .stats span {
   background-color: #f3f4f6;
   padding: 10px 15px;
   border-radius: 8px;
 }
-
 .pokeball {
   display: inline-block;
   width: 20px;
@@ -33,4 +29,24 @@ h1 {
     black 45% 55%,
     white 55% 100%
   );
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 12px 16px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  .stats {
+    gap: 6px;
+    font-size: 13px;
+  }
+  .stats span {
+    padding: 7px 8px;
+  }
+  .pokeball {
+    width: 16px;
+    height: 16px;
+  }
 }

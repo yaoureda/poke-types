@@ -2,13 +2,11 @@
   display: block;
   font-family: sans-serif;
 }
-
 .game-content {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   min-height: 430px;
 }
-
 .pokemon-panel {
   display: flex;
   flex-direction: column;
@@ -20,15 +18,12 @@
   border: 1px solid #e5e7eb;
   border-radius: 16px;
 }
-
 .pokemon-panel p {
   font-size: 20px;
 }
-
 .pokemon-name {
   text-transform: capitalize;
 }
-
 .answer-panel {
   display: flex;
   flex-direction: column;
@@ -38,7 +33,6 @@
   border-radius: 16px;
   background: white;
 }
-
 .submit-button {
   width: 100%;
   margin-top: 24px;
@@ -54,14 +48,39 @@
     background 0.15s ease,
     transform 0.15s ease;
 }
-
 .submit-button:hover:not(:disabled) {
   background: #000;
   transform: translateY(-1px);
 }
-
 .submit-button:disabled {
   background: #d1d5db;
   color: #9ca3af;
   cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .game-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 16px;
+  }
+  .pokemon-panel {
+    border-radius: 16px 16px 0 0;
+    border-bottom: none;
+    padding: 20px 16px 10px;
+  }
+  .answer-panel {
+    border-radius: 0 0 16px 16px;
+    padding: 16px;
+  }
+  .pokemon-panel p {
+    margin: 0 0 8px;
+    font-size: 18px;
+  }
+  .pokemon-display img {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+  }
 }
